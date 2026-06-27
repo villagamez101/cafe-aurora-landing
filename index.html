@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cafe Aurora | Cafe local</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="logo" href="#">Cafe Aurora</a>
+      <nav class="nav" aria-label="Navegacion principal">
+        <a href="#menu" data-i18n="navMenu">Menu</a>
+        <a href="#local" data-i18n="navLocal">Local</a>
+        <a href="#contacto" data-i18n="navContact">Contacto</a>
+      </nav>
+      <div class="header-controls" aria-label="Controles del sitio">
+        <button class="theme-toggle" type="button" data-i18n="themeToggle">Modo oscuro</button>
+        <label class="language-select">
+          <span data-i18n="languageLabel">Idioma</span>
+          <select id="language-picker" aria-label="Idioma">
+            <option value="es">ES</option>
+            <option value="en">EN</option>
+            <option value="zh">中文</option>
+          </select>
+        </label>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow" data-i18n="heroEyebrow">Cafe de especialidad en tu barrio</p>
+          <h1 data-i18n="heroTitle">Buen cafe, pan dulce y un espacio tranquilo para bajar el ritmo.</h1>
+          <p class="hero-text" data-i18n="heroText">
+            Servimos espresso, filtrados y reposteria fresca todos los dias con
+            granos seleccionados de productores locales.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#menu" data-i18n="heroPrimary">Ver especialidades</a>
+            <a class="button secondary" href="#local" data-i18n="heroSecondary">Como llegar</a>
+          </div>
+        </div>
+        <aside class="hero-card" aria-label="Informacion destacada">
+          <span data-i18n="heroCardLabel">Abierto hoy</span>
+          <strong>8:00 - 20:00</strong>
+          <p data-i18n="heroCardAddress">Av. Central 123, Centro</p>
+        </aside>
+      </section>
+
+      <section id="menu" class="section">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="menuEyebrow">Nuestro menu</p>
+          <h2 data-i18n="menuTitle">Favoritos de la casa</h2>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <h3 data-i18n="productOneTitle">Latte Aurora</h3>
+            <p data-i18n="productOneText">Espresso suave con leche cremosa y un toque de vainilla natural.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="productTwoTitle">Cold Brew</h3>
+            <p data-i18n="productTwoText">Extraccion lenta, notas de cacao y final refrescante.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="productThreeTitle">Croissant artesanal</h3>
+            <p data-i18n="productThreeText">Horneado por la manana, mantequilla real y textura ligera.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section testimonials" aria-labelledby="testimonials-title">
+        <div class="section-heading">
+          <p class="eyebrow" data-i18n="testimonialsEyebrow">Testimonios</p>
+          <h2 id="testimonials-title" data-i18n="testimonialsTitle">Lo que dicen nuestros clientes</h2>
+        </div>
+        <div class="cards">
+          <article class="card testimonial-card">
+            <p data-i18n="testimonialOneText">"El latte es excelente y el ambiente perfecto para leer un rato."</p>
+            <strong data-i18n="testimonialOneName">Mariana G.</strong>
+          </article>
+          <article class="card testimonial-card">
+            <p data-i18n="testimonialTwoText">"Siempre paso por un cold brew antes de ir a la oficina."</p>
+            <strong data-i18n="testimonialTwoName">Carlos R.</strong>
+          </article>
+          <article class="card testimonial-card">
+            <p data-i18n="testimonialThreeText">"El servicio es amable y los croissants salen frescos cada manana."</p>
+            <strong data-i18n="testimonialThreeName">Lucia M.</strong>
+          </article>
+        </div>
+      </section>
+
+      <section id="local" class="section split">
+        <div>
+          <p class="eyebrow" data-i18n="locationEyebrow">Ubicacion y contacto</p>
+          <h2 data-i18n="locationTitle">Un rincón calido para trabajar, leer o encontrarte con alguien.</h2>
+        </div>
+        <div class="info-panel">
+          <p><strong data-i18n="addressLabel">Direccion:</strong> <span data-i18n="addressText">Av. Central 123, Centro</span></p>
+          <p><strong data-i18n="hoursLabel">Horario:</strong> <span data-i18n="hoursText">Lunes a domingo, 8:00 - 20:00</span></p>
+          <p><strong data-i18n="phoneLabel">Telefono:</strong> <a href="tel:+34123456789">+34 123 456 789</a></p>
+        </div>
+      </section>
+
+      <section class="section learning-section" aria-labelledby="learning-title">
+        <div class="learning-panel">
+          <p class="eyebrow" data-i18n="learningEyebrow">Aprendizaje</p>
+          <h2 id="learning-title" data-i18n="learningTitle">What I learned</h2>
+          <p data-i18n="learningText">
+            Este proyecto es una practica para aprender OpenCode, Git y como trabajar con agentes de IA en cambios pequenos y controlados.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contacto" class="site-footer">
+      <p><span data-i18n="footerCta">Reserva o pide para llevar:</span> <a href="tel:+34123456789">+34 123 456 789</a></p>
+      <p>&copy; <span id="year"></span> Cafe Aurora. <span data-i18n="footerRights">Todos los derechos reservados.</span></p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
