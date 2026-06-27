@@ -1,6 +1,8 @@
 const yearElement = document.querySelector("#year");
 const themeToggle = document.querySelector(".theme-toggle");
 const languagePicker = document.querySelector("#language-picker");
+const contactForm = document.querySelector(".contact-form");
+const formStatus = document.querySelector("[data-form-status]");
 
 const translations = {
   es: {
@@ -46,8 +48,24 @@ const translations = {
     learningTitle: "What I learned",
     learningText:
       "Este proyecto es una practica para aprender OpenCode, Git y como trabajar con agentes de IA en cambios pequenos y controlados.",
+    contactEyebrow: "Contacto",
+    contactTitle: "Escribenos o ven por tu cafe favorito.",
+    contactText: "Este formulario es visual para la practica. No envia datos a ningun servidor.",
+    contactNameLabel: "Nombre",
+    contactNamePlaceholder: "Tu nombre",
+    contactEmailLabel: "Correo",
+    contactEmailPlaceholder: "tu@email.com",
+    contactMessageLabel: "Mensaje",
+    contactMessagePlaceholder: "Cuentanos que necesitas",
+    contactSubmit: "Enviar mensaje",
+    contactFormNote: "Formulario demostrativo: no se enviaran datos.",
+    contactFormSent: "Mensaje listo. En esta practica no se envia a ningun servidor.",
+    mapEyebrow: "Visitanos",
+    mapTitle: "Av. Central 123, Centro",
+    mapText: "A dos calles de la plaza principal, con mesas tranquilas y cafe recien molido.",
     footerCta: "Reserva o pide para llevar:",
     footerRights: "Todos los derechos reservados.",
+    footerPracticePrefix: "Proyecto creado como práctica de IA por",
   },
   en: {
     pageTitle: "Cafe Aurora | Local coffee shop",
@@ -92,8 +110,24 @@ const translations = {
     learningTitle: "What I learned",
     learningText:
       "This project is a practice lab for learning OpenCode, Git and how to work with AI agents through small, controlled changes.",
+    contactEyebrow: "Contact",
+    contactTitle: "Write to us or stop by for your favorite coffee.",
+    contactText: "This form is visual for practice. It does not send data to any server.",
+    contactNameLabel: "Name",
+    contactNamePlaceholder: "Your name",
+    contactEmailLabel: "Email",
+    contactEmailPlaceholder: "you@email.com",
+    contactMessageLabel: "Message",
+    contactMessagePlaceholder: "Tell us what you need",
+    contactSubmit: "Send message",
+    contactFormNote: "Demo form: no data will be sent.",
+    contactFormSent: "Message ready. In this practice, it is not sent to any server.",
+    mapEyebrow: "Visit us",
+    mapTitle: "123 Central Ave, Downtown",
+    mapText: "Two blocks from the main square, with quiet tables and freshly ground coffee.",
     footerCta: "Book or order takeaway:",
     footerRights: "All rights reserved.",
+    footerPracticePrefix: "Project created as AI practice by",
   },
   zh: {
     pageTitle: "Cafe Aurora | 本地咖啡店",
@@ -136,8 +170,24 @@ const translations = {
     learningEyebrow: "学习记录",
     learningTitle: "我学到了什么",
     learningText: "这个项目是一个练习，用来学习 OpenCode、Git，以及如何通过小而可控的修改与 AI 代理协作。",
+    contactEyebrow: "联系",
+    contactTitle: "给我们留言，或来喝你喜欢的咖啡。",
+    contactText: "这个表单只用于视觉练习，不会向任何服务器发送数据。",
+    contactNameLabel: "姓名",
+    contactNamePlaceholder: "你的姓名",
+    contactEmailLabel: "邮箱",
+    contactEmailPlaceholder: "you@email.com",
+    contactMessageLabel: "留言",
+    contactMessagePlaceholder: "告诉我们你的需求",
+    contactSubmit: "发送留言",
+    contactFormNote: "演示表单：不会发送任何数据。",
+    contactFormSent: "留言已准备好。在这个练习中，它不会发送到服务器。",
+    mapEyebrow: "到店访问",
+    mapTitle: "市中心 Central 大街 123 号",
+    mapText: "距离主广场两个街区，有安静的座位和现磨咖啡。",
     footerCta: "预订或外带：",
     footerRights: "版权所有。",
+    footerPracticePrefix: "AI 练习项目创建者：",
   },
 };
 
@@ -174,6 +224,14 @@ const applyLanguage = (language) => {
     }
   });
 
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((element) => {
+    const key = element.dataset.i18nPlaceholder;
+
+    if (dictionary[key]) {
+      element.placeholder = dictionary[key];
+    }
+  });
+
   updateThemeLabel();
 };
 
@@ -187,6 +245,16 @@ if (themeToggle) {
 if (languagePicker) {
   languagePicker.addEventListener("change", (event) => {
     applyLanguage(event.target.value);
+  });
+}
+
+if (contactForm) {
+  contactForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    if (formStatus) {
+      formStatus.textContent = translations[currentLanguage].contactFormSent;
+    }
   });
 }
 
